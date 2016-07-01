@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="en" ng-app="CalcApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple calculator</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/mainController.js"></script>
+    <script src="app/mainService.js"></script>
+    <script src="app/actionButton.js"></script>
+  </head>
+  <body ng-controller="mainController">
+    <div class="calcWidth">
+    	<div class="widthFull"	>
+    		<label id="result" style="float:right;">$ {{currentExpr}}</label><br />
+    	</div>
+    	<div class="widthFull">
+    		<!--validation is omitted-->
+    		<input type="text" id="operand" ng-model="operand" maxlength="3" class="widthFull" />	
+    	</div>
+        <div class="buttonsGroup">
+            <!--we don't really need directive here, just for illustration purposes-->
+            <action-button ng-repeat="(key, value) in allOperations" type="key"></action-button>
+
+            <button id="Eq" ng-click="eq()">=</button>
+            <button id="Clear" ng-click="clear()">C</button>
+            <button id="Convert" ng-click="convert()">Convert to GBP</button>
+            </div>
+        <label id="resultConverted">Converted: £ {{resultConverted}}</label>
+    </div>
+  </body>
+</html>
+
+
+
+
+
